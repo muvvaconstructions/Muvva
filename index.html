@@ -1,111 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Muvva Constructions | Simhapuri Colony</title>
+  <meta name="description" content="Muvva Constructions — Quality, luxury and on-time delivery of residential flats in Simhapuri Colony, Hyderabad." />
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #0f172a;
-      color: #e5e7eb;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+    :root{
+      --bg:#fbfbff; /* pastel off-white */
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#8aaedb; /* pastel blue */
+      --accent-2:#dfc6f1; /* pastel lavender */
+      --brand:#6b2d85; /* gentle purple for titles */
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 0 6px 18px rgba(16,24,40,0.06);
+      --radius:12px;
+      --maxw:1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    .container {
-      max-width: 800px;
-      padding: 2rem;
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#263238;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.25rem;
-    }
-    h2 {
-      margin-top: 2rem;
-      margin-bottom: 0.75rem;
-    }
-    p {
-      line-height: 1.6;
-      color: #cbd5f5;
-    }
-    .tagline {
-      font-size: 1rem;
-      color: #9ca3af;
-      margin-bottom: 1.5rem;
-    }
-    .projects {
-      display: grid;
-      gap: 1rem;
-    }
-    .project {
-      border: 1px solid #1f2937;
-      border-radius: 0.75rem;
-      padding: 1rem;
-      background: #020617;
-    }
-    .project-title {
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-    .button {
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      border: 1px solid #38bdf8;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
+    a{color:var(--brand); text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:20px}
+
+    /* HEADER */
+    header{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:52px;width:auto;display:block;border-radius:8px;background:var(--glass);padding:6px}
+    .brand h1{font-size:1.05rem;margin:0;color:var(--brand);letter-spacing:0.2px}
+    .nav{display:flex;gap:12px;align-items:center}
+    .nav a.button{padding:10px 14px;border-radius:999px;border:1px solid #e6e6ea;background:#fff;font-weight:600;font-size:0.88rem;box-shadow:var(--shadow)}
+
+    /* HERO */
+    .hero{position:relative;border-radius:18px;overflow:hidden;margin-bottom:28px;box-shadow:var(--shadow)}
+    .hero .hero-bg{width:100%;height:420px;object-fit:cover;display:block;filter:contrast(0.98)brightness(0.9)}
+    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(255,255,255,0.25), rgba(255,255,255,0.6));}
+    .hero .hero-inner{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px}
+    .hero h2{margin:0;font-size:2rem;color:var(--brand);text-align:center}
+    .hero p.subtitle{margin:12px 0 18px;color:var(--muted);max-width:740px;text-align:center;font-size:1rem}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;font-weight:700;border:none;cursor:pointer}
+    .btn-primary{background:var(--accent);color:#042033}
+    .btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:#253046}
+
+    /* SECTIONS */
+    section{padding:28px 0}
+    .section-title{font-size:1.25rem;color:var(--brand);margin-bottom:6px}
+    .section-sub{color:var(--muted);margin-bottom:14px}
+
+    /* PROJECT CARDS */
+    .grid{display:grid;gap:16px}
+    .grid-2{grid-template-columns:1fr; }
+    @media(min-width:760px){ .grid-2{grid-template-columns:repeat(2,1fr)} }
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:var(--shadow);border:1px solid #f0f0f4}
+    .card .title{font-weight:700;color:var(--brand);margin-bottom:6px}
+    .card .meta{color:var(--muted);font-size:0.92rem;margin-bottom:8px}
+    .card p{color:#2f3b3f;margin:0 0 8px}
+
+    /* CONTACT */
+    .contact-grid{display:grid;gap:12px}
+    @media(min-width:760px){ .contact-grid{grid-template-columns:2fr 1fr} }
+    .contact-box{background:var(--card);padding:16px;border-radius:12px;border:1px solid #f0f0f4;box-shadow:var(--shadow)}
+
+    /* GALLERY */
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    @media(min-width:760px){ .gallery{grid-template-columns:repeat(4,1fr)} }
+    .thumb{border-radius:10px;overflow:hidden;cursor:pointer;border:1px solid #efeef3}
+    .thumb img{width:100%;height:160px;object-fit:cover;display:block;transition:transform .25s}
+    .thumb:hover img{transform:scale(1.03)}
+
+    /* LIGHTBOX */
+    .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(10,12,15,0.6);z-index:1000;padding:20px}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:92%;max-height:88%;border-radius:10px;box-shadow:0 30px 50px rgba(2,6,23,0.5)}
+    .lightbox .close{position:absolute;top:18px;right:22px;background:#fff;border-radius:999px;padding:8px 10px;font-weight:700;cursor:pointer}
+
+    /* FOOTER */
+    footer{padding:16px 0;text-align:center;color:var(--muted);font-size:0.9rem}
+
+    /* FLOATING WHATSAPP */
+    .wa-float{position:fixed;right:18px;bottom:18px;z-index:1200}
+    .wa-button{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042033;font-weight:800;box-shadow:0 10px 26px rgba(53,81,125,0.18)}
+
+    /* small helpers */
+    .muted{color:var(--muted);font-size:0.95rem}
+    .download-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .download-row a{padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #efeef3;font-weight:600}
   </style>
 </head>
 <body>
+
   <div class="container">
-    <h1>Your Name</h1>
-    <div class="tagline">Developer • Websites • Mobile Apps • Web Apps</div>
-    <p>
-      I build modern websites, mobile applications and web-based solutions.
-      Here are a few of my projects. Reach out if you want to collaborate.
-    </p>
-
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <div class="project-title">Project 1 – App / Website Name</div>
-        <p>1–2 lines describing what this project does and what tech you used.</p>
-        <a href="https://link-to-demo-or-video" target="_blank">View project</a>
+    <!-- header -->
+    <header>
+      <div class="brand">
+        <!-- put your logo file at assets/logo.png -->
+        <img src="assets/logo.png" alt="Muvva Constructions Logo" id="logo">
+        <div>
+          <h1>Muvva Constructions</h1>
+          <div class="muted" style="font-size:0.86rem">Simhapuri Colony, Pragathi Nagar, Hyderabad</div>
+        </div>
       </div>
 
-      <div class="project">
-        <div class="project-title">Project 2 – App / Website Name</div>
-        <p>Short description about the project and your role.</p>
-        <a href="https://link-to-demo-or-github" target="_blank">View project</a>
+      <nav class="nav">
+        <a class="button" href="#projects">Projects</a>
+        <a class="button" href="#gallery">Gallery</a>
+        <a class="button" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <!-- put main building/render image at assets/building.jpg -->
+      <img class="hero-bg" src="assets/building.jpg" alt="Muvva Constructions - building render" />
+      <div class="overlay"></div>
+      <div class="hero-inner">
+        <h2>Muvva Constructions</h2>
+        <p class="subtitle">
+          Delivering luxurious, quality-built residential flats with strong construction standards and timely handovers —
+          thoughtfully designed for modern family living in Hyderabad.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://wa.me/919502333377?text=Hello%20Muvva%20Constructions%2C%20I%20am%20interested%20in%20your%20flats" target="_blank" rel="noopener">📲 WhatsApp</a>
+          <a class="btn btn-ghost" href="#projects">🏢 View Projects</a>
+          <a class="btn btn-ghost" href="#gallery">📸 Gallery</a>
+        </div>
+
+        <div style="margin-top:14px" class="download-row">
+          <!-- Put your brochure PDF at assets/PDF_GO_MUVVA_CONSTRUCTIONS___NEW.pdf -->
+          <a href="assets/PDF_GO_MUVVA CONSTRUCTIONS___NEW.pdf" download>Download Brochure (PDF)</a>
+          <!-- Put your PPTX at assets/PDF_GO_MUVVA-3BHK-3D-PRESENTATION.pptx -->
+          <a href="assets/PDF_GO_MUVVA-3BHK-3D-PRESENTATION.pptx" download>Download Floor Plan (PPT)</a>
+        </div>
       </div>
+    </section>
 
-      <!-- Duplicate this block for more projects -->
-    </div>
+    <!-- PROJECTS (2 cards) -->
+    <section id="projects">
+      <div class="section-title">Our Projects</div>
+      <div class="section-sub">Premium residential apartments built with care and attention to detail in Simhapuri Colony.</div>
 
-    <h2>Contact</h2>
-    <p>You can reach me here:</p>
-    <div class="links">
-      <a class="button" href="https://instagram.com/yourid" target="_blank">Instagram</a>
-      <a class="button" href="https://youtube.com/@yourchannel" target="_blank">YouTube</a>
-      <a class="button" href="mailto:youremail@gmail.com" target="_blank">Email</a>
-    </div>
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="title">Muvva Constructions – Simhapuri Colony</div>
+          <div class="meta">2 & 3 BHK | G+5 Floors</div>
+          <p>Premium-quality residential flats designed for excellent ventilation, thoughtful layouts, and elegant finishes. Located in Simhapuri Colony with easy access to main roads and local amenities.</p>
+          <div class="muted">Location: Simhapuri Colony, Pragathi Nagar</div>
+        </article>
+
+        <article class="card">
+          <div class="title">Muvva Residency – Simhapuri Colony</div>
+          <div class="meta">2 BHK | G+4 Floors</div>
+          <p>Modern vastu-compliant homes with branded fittings, lift, power backup, ample parking and curated amenities for comfortable family living.</p>
+          <div class="muted">Status: Booking Open</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="section-title">Project Gallery</div>
+      <div class="section-sub">Tap any image to view larger. Includes completed renders, floorplans and presentation slides.</div>
+
+      <div class="gallery" id="gallery-grid">
+        <!-- thumb files you will upload to assets/ -->
+        <div class="thumb" data-full="assets/building.jpg"><img src="assets/building.jpg" alt="Completed building render"></div>
+        <div class="thumb" data-full="assets/completed_project.jpg"><img src="assets/completed_project.jpg" alt="Completed project photo"></div>
+        <div class="thumb" data-full="assets/floorplan-1.jpg"><img src="assets/floorplan-1.jpg" alt="Floorplan 3BHK"></div>
+        <div class="thumb" data-full="assets/floorplan-2.jpg"><img src="assets/floorplan-2.jpg" alt="Floorplan 2BHK"></div>
+        <!-- PPT slides converted to images -->
+        <div class="thumb" data-full="assets/slide-1.jpg"><img src="assets/slide-1.jpg" alt="3D render slide 1"></div>
+        <div class="thumb" data-full="assets/slide-2.jpg"><img src="assets/slide-2.jpg" alt="3D render slide 2"></div>
+        <div class="thumb" data-full="assets/slide-3.jpg"><img src="assets/slide-3.jpg" alt="3D render slide 3"></div>
+        <div class="thumb" data-full="assets/other-1.jpg"><img src="assets/other-1.jpg" alt="Project detail"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title">Book a Site Visit</div>
+      <div class="section-sub">Share your requirement and we'll schedule a walk-through.</div>
+
+      <div class="contact-grid">
+        <div class="contact-box">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="font-weight:800;font-size:1.05rem">Schedule a Visit</div>
+              <div class="muted" style="margin-top:6px">Call or WhatsApp to book a convenient time for a site visit and floor plan walkthrough.</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;color:var(--brand)">+91 95023 33377</div>
+              <div class="muted">Mon–Sat • 9:00am – 6:30pm</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="btn-row">
+            <a class="btn btn-primary" href="https://wa.me/919502333377?text=Hello%20Muvva%20Constructions%2C%20I%20want%20to%20book%20a%20site%20visit" target="_blank">📲 WhatsApp Now</a>
+            <a class="btn btn-ghost" href="tel:+919502333377">📞 Call</a>
+          </div>
+
+          <div style="margin-top:12px" class="muted">Office: Simhapuri Colony, Pragathi Nagar, Hyderabad</div>
+        </div>
+
+        <div class="contact-box">
+          <div style="font-weight:700;color:var(--brand)">Quick Links</div>
+          <div style="margin-top:8px" class="download-row">
+            <a href="assets/PDF_GO_MUVVA CONSTRUCTIONS___NEW.pdf" download>Download Brochure (PDF)</a>
+            <a href="assets/PDF_GO_MUVVA-3BHK-3D-PRESENTATION.pptx" download>Download Presentation (PPTX)</a>
+            <a href="assets/MUVVA_Constructions_Logos.pdf" download>Download Logos (PDF)</a>
+          </div>
+          <div style="margin-top:12px" class="muted">
+            Email: muvvaconstructions@gmail.com<br>
+            Instagram: <a href="#" target="_blank">@muvvaconstructions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Muvva Constructions — Simhapuri Colony, Hyderabad.
+    </footer>
   </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+    <button class="close" id="lightboxClose" aria-label="Close">✕</button>
+    <img id="lightboxImage" src="" alt="Gallery image large">
+  </div>
+
+  <!-- FLOATING WA -->
+  <div class="wa-float">
+    <a class="wa-button" href="https://wa.me/919502333377?text=Hi%20Muvva%20Constructions%2C%20I'm%20interested" target="_blank" rel="noopener">
+      📲 WhatsApp
+    </a>
+  </div>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // lightbox
+    const gallery = document.getElementById('gallery-grid');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImage');
+    const lbClose = document.getElementById('lightboxClose');
+
+    gallery.addEventListener('click', e => {
+      const thumb = e.target.closest('.thumb');
+      if(!thumb) return;
+      const full = thumb.getAttribute('data-full');
+      if(!full) return;
+      lbImg.src = full;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+    });
+
+    lbClose.addEventListener('click', ()=> {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+      lbImg.src = '';
+    });
+
+    lightbox.addEventListener('click', (e)=> {
+      if(e.target === lightbox) {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden','true');
+        lbImg.src = '';
+      }
+    });
+  </script>
 </body>
 </html>
